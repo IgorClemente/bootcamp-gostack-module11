@@ -1,4 +1,4 @@
-import User from '../models/User';
+import User from "../models/User";
 
 class UserController {
   async store(req, res) {
@@ -7,7 +7,7 @@ class UserController {
     const checkEmail = await User.findOne({ where: { email } });
 
     if (checkEmail) {
-      return res.status(400).json({ error: 'Email duplicated' });
+      return res.status(400).json({ error: "Email duplicated" });
     }
 
     const user = await User.create(req.body);
